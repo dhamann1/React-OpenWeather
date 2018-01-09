@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import logo from '../../logo.svg';
 import './App.css';
+import logo from '../../logo.svg';
 import API from '../../api/api'; 
+import WeatherGrid from '../WeatherGrid/WeatherGrid';
 
 
 class App extends Component {
   constructor(){
     super();
     this.state = {
-
+      weather: null 
     }
   };
 
   componentDidMount(){
-    API.fetchWeatherForcast().then((data) => console.log(data)); 
+    API.fetchWeatherForcast().then((data) => {
+      this.setState({
+        weather: data 
+      })
+    }); 
   }
 
 
@@ -27,6 +32,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <WeatherGrid weather={this.state.weather} /> 
       </div>
     );
   }
