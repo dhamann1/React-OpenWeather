@@ -2,10 +2,11 @@ import React from 'react';
 import './WeatherGrid.css';
 
 
+
 const WeatherGrid = ({weather}) => {
 	return (
     <div>
-      {!weather ? <p>Loading</p> :  
+      {!weather ? <p>Loading</p> : 
       <div className= "weatherTable">
         <h2> Weather in {weather.city.name}</h2>
         <h3> {weather.list[0].main.temp} ° Degrees </h3> 
@@ -34,8 +35,7 @@ const WeatherGrid = ({weather}) => {
               </tr>
             </tbody>
           </table>
-      </div>
-        
+      </div>   
     }
     </div> 
   )

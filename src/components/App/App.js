@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from '../../logo.svg';
-import API from '../../api/api'; 
+import weatherAPI from '../../utilities/weatherAPI'; 
 import WeatherGrid from '../WeatherGrid/WeatherGrid';
 
 
@@ -13,17 +13,15 @@ class App extends Component {
     }
   };
 
-  componentDidMount(){
-    API.fetchWeatherForcast().then((data) => {
-      this.setState({
-        weather: data 
-      })
-    }); 
+  sampleWeather = () => {
+    weatherAPI.fetchSampleWeather()
+    .then(weather => this.setState({weather}))
+
   }
 
-
-
-
+  componentDidMount(){
+    this.sampleWeather();
+  }
 
   render() {
     return (
