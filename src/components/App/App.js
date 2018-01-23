@@ -21,15 +21,17 @@ class App extends Component {
 
   }
 
-  handleSubmit = (e) =>{
+  handleSubmit = (e) => {
     e.preventDefault();
-    var location = this.refs.cityName.input.value.trim()
+    let location = this.refs.cityName.input.value.trim();
+    let queryLocation = location + ", us";
+    console.log(queryLocation);
     fetch('/api/weather/search', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
-      body: JSON.stringify({location}) 
+      body: JSON.stringify({queryLocation}) 
     })
     .then(res => res.json())  
     .then(weather => this.setState({weather}))
@@ -51,7 +53,7 @@ class App extends Component {
         <form onSubmit={(e) => this.handleSubmit(e)}> 
          <Row>
             <Input placeholder="Enter City" name="location" ref="cityName"/> 
-            <span><Button type="submit" waves="light">Forcast</Button></span> 
+            <span><Button type="submit" waves="light">Forecast</Button></span> 
           </Row>
        </form> 
       </div> 

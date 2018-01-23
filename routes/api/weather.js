@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var request = require('request-promise-native');
-var weatherCtrl = require('../../controllers/weather');
+let express = require('express');
+let router = express.Router();
+let request = require('request-promise-native');
+let weatherCtrl = require('../../controllers/weather');
 
 
 router.get('/sample', weatherCtrl.fetchSampleWeather); 

@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var bodyParser = require('body-parser');
+let express = require('express');
+let path = require('path');
+let logger = require('morgan');
+let bodyParser = require('body-parser');
 
 require('dotenv').config(); 
 
-var app = express(); 
+let app = express(); 
 
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
@@ -20,7 +20,7 @@ app.get('/*', function (req, res) {
 });
 
 
-var  port = process.env.PORT || 3001;
+let port = process.env.PORT || 3001;
 
 app.listen(port, function() {
     console.log(`Express app running on ${port}`)
