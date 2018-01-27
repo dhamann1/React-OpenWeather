@@ -1,50 +1,51 @@
 import React from 'react';
 import './WeatherGrid.css';
+import {Container, Table} from 'react-materialize';
 
 
 
 const WeatherGrid = ({weather}) => {
 	return (
-    <div>
+    <Container> 
       {!weather ? <p>Loading</p> : 
       <div className= "weatherTable">
         <h2> Weather in {weather.name}, US</h2>
-        <h3> {weather.main.temp} °C </h3> 
-          <table>
+        <h3> {weather.main.temp} °F </h3> 
+          <Table>
             <tbody>
               <tr>
-                <td>Wind</td>
-                <td>{weather.wind.speed} m/h</td> 
+                <td className="inputTitle">Wind</td>
+                <td className="inputField">{weather.wind.speed} m/h</td> 
               </tr>
               <tr>
-                <td>Cloudiness</td>
-                <td>{weather.weather[0].description}</td> 
+                <td className="inputTitle">Cloudiness</td>
+                <td className="inputField">{weather.weather[0].description}</td> 
               </tr>
               <tr>
-                <td>Pressure</td>
-                <td>{weather.main.pressure}</td> 
+                <td className="inputTitle">Pressure</td>
+                <td className="inputField">{weather.main.pressure}</td> 
               </tr>
               <tr>
-                <td>Humidity</td>
-                <td>{weather.main.humidity} %</td> 
+                <td className="inputTitle">Humidity</td>
+                <td className="inputField">{weather.main.humidity} %</td> 
               </tr>
               <tr>
-                <td>Sunrise</td>
-                <td>{weather.sys.sunrise}</td> 
+                <td className="inputTitle">Sunrise</td>
+                <td className="inputField">{weather.sys.sunrise}</td> 
               </tr>
               <tr>
-                <td>Sunset</td>
-                <td>{weather.sys.sunset}</td> 
+                <td className="inputTitle">Sunset</td>
+                <td className="inputField">{weather.sys.sunset}</td> 
               </tr>
               <tr>
-                <td>Geo coords</td>
-                <td>{weather.coord.lat}, {weather.coord.lon}</td> 
+                <td className="inputTitle">Geo coords</td>
+                <td className="inputField">{weather.coord.lat}, {weather.coord.lon}</td> 
               </tr>
             </tbody>
-          </table>
+          </Table>
       </div>   
     }
-    </div> 
+    </Container> 
   )
 }
 

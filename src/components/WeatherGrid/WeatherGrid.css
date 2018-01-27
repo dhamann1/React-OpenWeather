@@ -1,4 +1,13 @@
 
-table {
+Table {
   margin: 0 auto;
 }
+
+.inputTitle{
+  text-align: left;
+}
+
+.inputField {
+  text-align: right; 
+}
+

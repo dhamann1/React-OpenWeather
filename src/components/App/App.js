@@ -24,7 +24,7 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     let location = this.refs.cityName.input.value.trim();
-    let queryLocation = location + ", us";
+    let queryLocation = location;
     console.log(queryLocation);
     fetch('/api/weather/search', {
       method: 'POST',
@@ -46,11 +46,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
         <div>
-        <form onSubmit={(e) => this.handleSubmit(e)}> 
+        <form className="weatherBar" onSubmit={(e) => this.handleSubmit(e)}> 
          <Row>
             <Input placeholder="Enter City" name="location" ref="cityName"/> 
             <span><Button type="submit" waves="light">Forecast</Button></span> 
